@@ -6,7 +6,7 @@ import { Benefits } from '@/components/Benefits';
 import { Programs } from '@/components/Programs';
 import { Footer } from '@/components/Footer';
 
-const heroImage = 'https://images.pexels.com/photos/6740312/pexels-photo-6740312.jpeg?auto=compress&cs=tinysrgb&w=1800';
+const heroImage = '/angar_hero.jpg';
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
