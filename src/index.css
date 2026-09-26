@@ -135,13 +135,8 @@ button {
 .hero {
   min-height: 405px;
   position: relative;
-
-  /* Текущее масштабирование фотографии */
-  background-size: 95% auto;
-
-  /* Фотография начинается примерно с правой четверти */
-  background-position: 95% top;
-
+  background-size: auto;
+  background-position: 30% 45%;
   background-repeat: no-repeat;
   overflow: hidden;
 }

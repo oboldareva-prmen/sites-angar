@@ -14,7 +14,7 @@ const programs: Program[] = [
     title: 'ТРЕНАЖЕРНЫЙ ЗАЛ',
     description: 'Современное оборудование и свободные тренировки без очередей.',
     icon: Dumbbell,
-    image: '/gym.jpg',
+    image: '/miniGr.jpg',
   },
   {
     title: 'МИНИ-ГРУППЫ',
