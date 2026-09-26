@@ -12,9 +12,13 @@
   -webkit-font-smoothing: antialiased;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
@@ -37,7 +41,10 @@ button {
   margin: 0 auto;
 }
 
-/* ===== HEADER ===== */
+
+/* =========================================================
+   HEADER
+   ========================================================= */
 
 .header {
   position: relative;
@@ -117,13 +124,24 @@ button {
   padding: 8px;
 }
 
-/* ===== HERO ===== */
+
+/* =========================================================
+   HERO
+   МЕСТО ДЛЯ ПОСЛЕДУЮЩЕЙ НАСТРОЙКИ ФОТО:
+   background-size
+   background-position
+   ========================================================= */
 
 .hero {
   min-height: 405px;
   position: relative;
+
+  /* Текущее масштабирование фотографии */
   background-size: 95% auto;
+
+  /* Фотография начинается примерно с правой четверти */
   background-position: 95% top;
+
   background-repeat: no-repeat;
   overflow: hidden;
 }
@@ -131,19 +149,21 @@ button {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(3,9,11,1) 0%,
-    rgba(3,9,11,.96) 20%,
-    rgba(3,9,11,.62) 38%,
-    rgba(3,9,11,.18) 64%,
-    rgba(3,9,11,.08) 100%
-  ),
-  linear-gradient(
-    0deg,
-    rgba(3,9,11,.72),
-    transparent 40%
-  );
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3,9,11,1) 0%,
+      rgba(3,9,11,.96) 20%,
+      rgba(3,9,11,.62) 38%,
+      rgba(3,9,11,.18) 64%,
+      rgba(3,9,11,.08) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(3,9,11,.72),
+      transparent 40%
+    );
 }
 
 .hero-content {
@@ -296,7 +316,12 @@ h1 em {
   margin-left: 12px;
 }
 
-/* ===== BENEFITS ===== */
+
+/* =========================================================
+   BENEFITS
+   МЕСТО ДЛЯ ПОСЛЕДУЮЩЕЙ НАСТРОЙКИ:
+   размеры и расстояния блока преимуществ
+   ========================================================= */
 
 .benefits {
   border-top: 1px solid rgba(214,165,46,.45);
@@ -353,7 +378,12 @@ h1 em {
   max-width: 230px;
 }
 
-/* ===== PROGRAMS ===== */
+
+/* =========================================================
+   PROGRAMS
+   МЕСТО ДЛЯ ПОСЛЕДУЮЩЕЙ НАСТРОЙКИ:
+   размеры карточек, изображения и кнопка
+   ========================================================= */
 
 .programs {
   padding: 30px 0 30px;
@@ -430,16 +460,18 @@ h1 em {
 .card-shade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(3,9,11,.92),
-    rgba(3,9,11,.25) 72%
-  ),
-  linear-gradient(
-    0deg,
-    rgba(3,9,11,.88),
-    transparent 68%
-  );
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3,9,11,.92),
+      rgba(3,9,11,.25) 72%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(3,9,11,.88),
+      transparent 68%
+    );
 }
 
 .card-content {
@@ -483,7 +515,12 @@ h1 em {
 }
 
 
-/* ===== FOOTER ===== */
+/* =========================================================
+   FOOTER
+   ОСНОВНАЯ ДОРАБОТКА:
+   первая строка всех 4 колонок = одна высота
+   вторая строка всех 4 колонок = одна высота
+   ========================================================= */
 
 .footer {
   border-top: 1px solid rgba(214,165,46,.45);
@@ -492,52 +529,77 @@ h1 em {
 
 .footer-inner {
   min-height: 86px;
+
   display: grid;
   grid-template-columns: 1fr 1fr 1.3fr 1fr;
+
+  /*
+   * Две общие строки:
+   * первая — заголовок / основная информация
+   * вторая — подпись
+   */
+  grid-template-rows: 32px 24px;
+
   align-items: center;
-  gap: 30px;
+
+  column-gap: 30px;
+  row-gap: 5px;
+
   padding-top: 18px;
   padding-bottom: 18px;
 }
 
+/* Каждый контакт становится "ячейкой" двух строк */
 .contact {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 5px;
-  color: #D6A52E;
+  display: contents;
 }
 
+/* Первая строка */
 .contact-title {
+  grid-row: 1;
+
   display: flex;
   align-items: center;
   gap: 9px;
+
   min-height: 24px;
 }
 
+/* Вторая строка */
+.contact > span,
+.contact .telegram {
+  grid-row: 2;
+}
+
+/* Текст первой строки */
 .contact-title strong {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 16px;
   line-height: 1;
   letter-spacing: .03em;
-  color: #F5F5F2;
+  color: #F5C75A;
   font-weight: 600;
 }
-
+/* Телефон немного крупнее */
 .contact:nth-child(2) .contact-title strong {
   font-size: 20px;
 }
+
+/* Вторая строка всех колонок */
 .contact > span,
 .telegram {
   font-family: 'Montserrat', sans-serif;
   font-size: 13px;
   line-height: 1.1;
   color: #B9C2C3;
-}
 
-.telegram {
   display: flex;
   align-items: center;
+  min-height: 24px;
+}
+
+/* Telegram */
+.telegram {
   gap: 8px;
 }
 
@@ -546,6 +608,26 @@ h1 em {
   flex-shrink: 0;
 }
 
+/* Иконка ведьмы */
+/* Название разработчика — золотым */
+.developer-name {
+  color: #F5C75A;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 24px;
+  white-space: nowrap;
+}
+
+.witch-icon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* Правообладатель */
 .copyright {
   padding: 0;
   font-family: 'Montserrat', sans-serif;
@@ -555,7 +637,78 @@ h1 em {
   text-align: left;
   letter-spacing: .01em;
 }
-/* ===== RESPONSIVE ===== */
+
+
+/* =========================================================
+   VIDEO MODAL
+   МЕСТО ДЛЯ ПОСЛЕДУЮЩЕЙ ДОРАБОТКИ ВИДЕО
+   ========================================================= */
+
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(3,9,11,.92);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.video-frame {
+  width: min(900px, 100%);
+  aspect-ratio: 16 / 9;
+  background: #071013;
+  border: 1px solid rgba(214,165,46,.65);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.video-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #B9C2C3;
+}
+
+.video-placeholder p {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 24px;
+  color: #F5C75A;
+  margin: 0;
+}
+
+.video-placeholder span {
+  font-size: 13px;
+}
+
+.video-close {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  background: none;
+  border: 1px solid rgba(214,165,46,.65);
+  border-radius: 50%;
+  color: #F5C75A;
+  cursor: pointer;
+  padding: 8px;
+  display: grid;
+  place-items: center;
+  transition: background .2s;
+}
+
+.video-close:hover {
+  background: #D6A52E;
+  color: #03090B;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
 
 @media (max-width: 900px) {
 
@@ -585,6 +738,7 @@ h1 em {
     display: flex;
   }
 
+  /* HERO — планшет */
   .hero {
     min-height: 560px;
     background-position: center top;
@@ -601,6 +755,7 @@ h1 em {
     display: none;
   }
 
+  /* BENEFITS */
   .benefits-grid,
   .program-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -614,15 +769,19 @@ h1 em {
     border-top: 1px solid rgba(214,165,46,.35);
   }
 
+  /* FOOTER — планшет */
   .footer-inner {
-    flex-wrap: wrap;
-  }
-
-  .contact + .contact {
-    padding-left: 0;
-    border-left: 0;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    row-gap: 20px;
   }
 }
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   МЕСТО ДЛЯ ПОСЛЕДУЮЩЕЙ НАСТРОЙКИ МОБИЛЬНОЙ ВЕРСИИ
+   ========================================================= */
 
 @media (max-width: 560px) {
 
@@ -643,6 +802,7 @@ h1 em {
     font-size: 7px;
   }
 
+  /* HERO — мобильный */
   .hero {
     min-height: 600px;
     background-position: center top;
@@ -650,17 +810,18 @@ h1 em {
   }
 
   .hero-overlay {
-    background: linear-gradient(
-      90deg,
-      rgba(3,9,11,.98) 0%,
-      rgba(3,9,11,.82) 55%,
-      rgba(3,9,11,.35)
-    ),
-    linear-gradient(
-      0deg,
-      rgba(3,9,11,.95),
-      transparent 65%
-    );
+    background:
+      linear-gradient(
+        90deg,
+        rgba(3,9,11,.98) 0%,
+        rgba(3,9,11,.82) 55%,
+        rgba(3,9,11,.35)
+      ),
+      linear-gradient(
+        0deg,
+        rgba(3,9,11,.95),
+        transparent 65%
+      );
   }
 
   .eyebrow {
@@ -697,6 +858,7 @@ h1 em {
     height: 40px;
   }
 
+  /* BENEFITS + PROGRAMS */
   .benefits-grid,
   .program-grid {
     grid-template-columns: 1fr;
@@ -718,8 +880,8 @@ h1 em {
   }
 
   .programs {
-  padding: 34px 0 30px;
-}
+    padding: 34px 0 30px;
+  }
 
   .section-heading {
     gap: 10px;
@@ -735,18 +897,32 @@ h1 em {
     height: 200px;
   }
 
+  /* FOOTER — мобильный */
   .footer-inner {
-    align-items: flex-start;
+    display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 16px;
     padding-top: 20px;
+    padding-bottom: 20px;
   }
 
-  .contact + .contact {
-    padding-left: 0;
+  .contact {
+    display: flex;
+    width: 100%;
+  }
+
+  .contact-title {
+    min-height: 24px;
+  }
+
+  .contact > span,
+  .telegram {
+    min-height: 24px;
   }
 
   .copyright {
     padding-bottom: 20px;
   }
 }
+

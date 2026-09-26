@@ -1,5 +1,5 @@
 import { MapPin, MessageCircle, Send } from 'lucide-react';
-import witchIcon from '/TW2.png';
+import witchIcon from '/TW3.png';
 
 export function Footer() {
   return (
