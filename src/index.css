@@ -61,6 +61,13 @@ button {
   gap: 2px;
 }
 
+.brand-logo {
+  width: 270px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
 .brand-name {
   font-family: 'Barlow Condensed', sans-serif;
   letter-spacing: .12em;
@@ -82,7 +89,7 @@ button {
 
 .brand-caption {
   color: #B9C2C3;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: .07em;
   font-weight: 600;
 }
@@ -131,7 +138,6 @@ button {
    background-size
    background-position
    ========================================================= */
-
 .hero {
   min-height: 405px;
   position: relative;
@@ -144,7 +150,6 @@ button {
 .hero-overlay {
   position: absolute;
   inset: 0;
-
   background:
     linear-gradient(
       90deg,
@@ -204,6 +209,11 @@ h1 {
   color: #F5F5F2;
 }
 
+/* Уменьшенное "ТВОЙ КЛУБ" */
+.hero-title-small {
+  font-size: 0.7em;
+}
+
 h1 em {
   display: block;
   color: #F5C75A;
@@ -217,7 +227,7 @@ h1 em {
 }
 
 .hero-text {
-  max-width: 340px;
+  max-width: 280px;
   font-size: 12.5px;
   line-height: 1.5;
   font-weight: 600;
@@ -310,8 +320,6 @@ h1 em {
   margin-top: 8px;
   margin-left: 12px;
 }
-
-
 /* =========================================================
    BENEFITS
    МЕСТО ДЛЯ ПОСЛЕДУЮЩЕЙ НАСТРОЙКИ:
@@ -575,6 +583,9 @@ h1 em {
   color: #F5C75A;
   font-weight: 600;
 }
+.contact:nth-child(3) .contact-title strong {
+  color: #F5F5F2;
+}
 /* Телефон немного крупнее */
 .contact:nth-child(2) .contact-title strong {
   font-size: 20px;
@@ -734,17 +745,22 @@ h1 em {
   }
 
   /* HERO — планшет */
-  .hero {
-    min-height: 560px;
-    background-position: center top;
-    background-repeat: no-repeat;
-  }
 
-  .hero-content {
-    min-height: 480px;
-    align-items: flex-end;
-    padding-bottom: 50px;
-  }
+ /* HERO — планшет */
+
+.hero {
+  min-height: 430px;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+.hero-content {
+  min-height: 350px;
+  align-items: flex-start;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+  
 
   .hero-slogan {
     display: none;
@@ -766,10 +782,26 @@ h1 em {
 
   /* FOOTER — планшет */
   .footer-inner {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
-    row-gap: 20px;
-  }
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: auto;
+  column-gap: 24px;
+  row-gap: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.contact-title strong {
+  font-size: 15px;
+}
+
+.contact:nth-child(2) .contact-title strong {
+  font-size: 18px;
+}
+
+.contact > span,
+.telegram {
+  font-size: 12px;
+}
 }
 
 
@@ -894,30 +926,25 @@ h1 em {
 
   /* FOOTER — мобильный */
   .footer-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
 
-  .contact {
-    display: flex;
-    width: 100%;
-  }
+.contact-title strong {
+  font-size: 14px;
+}
 
-  .contact-title {
-    min-height: 24px;
-  }
+.contact:nth-child(2) .contact-title strong {
+  font-size: 17px;
+}
 
-  .contact > span,
-  .telegram {
-    min-height: 24px;
-  }
-
-  .copyright {
-    padding-bottom: 20px;
-  }
+.contact > span,
+.telegram {
+  font-size: 11px;
+}
 }
 

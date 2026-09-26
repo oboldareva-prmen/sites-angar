@@ -13,7 +13,7 @@ export function Header({ menuOpen, onToggle, onNavigate }: HeaderProps) {
 
         <img
           className="brand-logo"
-          src="/logo_angar.svg"
+          src="/logo_angar.png"
           alt="АНГАР"
         />
 
