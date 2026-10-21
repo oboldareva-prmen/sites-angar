@@ -27,16 +27,16 @@ export function Header({ menuOpen, onToggle, onNavigate }: HeaderProps) {
         className={menuOpen ? 'nav nav-open' : 'nav'}
         aria-label="Основная навигация"
       >
+        <a href="#top" onClick={onNavigate}>
+          ОСНОВНОЕ
+        </a>
+
         <a className="active" href="#programs" onClick={onNavigate}>
           ПРОГРАММЫ
         </a>
 
-        <a href="#about" onClick={onNavigate}>
+        <a href="#trainers" onClick={onNavigate}>
           ТРЕНЕРЫ
-        </a>
-
-        <a href="#programs" onClick={onNavigate}>
-          ЗАЛ
         </a>
 
         <a href="#contacts" onClick={onNavigate}>
