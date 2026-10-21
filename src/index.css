@@ -389,7 +389,7 @@ h1 em {
    ========================================================= */
 
 .programs {
-  padding: 30px 0 30px;
+  padding: 30px 0 34px;
 }
 
 .section-heading {
@@ -419,102 +419,129 @@ h1 em {
 
 .program-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-}
-
-.programs-button {
-  display: flex;
-  width: fit-content;
-  margin: 30px auto 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
 }
 
 .program-card {
-  position: relative;
-  height: 178px;
-  border: 1px solid rgba(214,165,46,.65);
-  border-radius: 3px;
+  min-width: 0;
+  min-height: 236px;
+  display: grid;
+  grid-template-columns: 42% minmax(0, 1fr);
+  border: 1px solid #D6A52E;
+  border-radius: 4px;
   overflow: hidden;
   background: #071013;
-  transition: transform .25s, border-color .25s;
+  transition: transform .25s, border-color .25s, box-shadow .25s;
 }
 
 .program-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   border-color: #F5C75A;
+  box-shadow: 0 12px 28px rgba(0,0,0,.28);
 }
 
-.program-card img {
+.program-image-wrap {
+  min-width: 0;
+  min-height: 100%;
+  position: relative;
+  overflow: hidden;
+  border-right: 1px solid rgba(214,165,46,.72);
+}
+
+.program-image-wrap::after {
+  content: '';
   position: absolute;
   inset: 0;
+  background: linear-gradient(90deg, rgba(3,9,11,.08), rgba(3,9,11,.3));
+}
+
+.program-image-wrap img {
+  display: block;
   width: 100%;
   height: 100%;
+  min-height: 236px;
   object-fit: cover;
-  filter: saturate(.7) contrast(1.05) brightness(.8);
-  opacity: .72;
-  transition: transform .5s, opacity .3s;
+  filter: saturate(.78) contrast(1.06) brightness(.78);
+  transition: transform .5s, filter .3s;
 }
 
-.program-card:hover img {
-  transform: scale(1.03);
-  opacity: .88;
+.program-card:hover .program-image-wrap img {
+  transform: scale(1.04);
+  filter: saturate(.92) contrast(1.06) brightness(.86);
 }
 
-.card-shade {
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(3,9,11,.92),
-      rgba(3,9,11,.25) 72%
-    ),
-    linear-gradient(
-      0deg,
-      rgba(3,9,11,.88),
-      transparent 68%
-    );
+.program-card-content {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 18px 20px 15px;
 }
 
-.card-content {
-  position: absolute;
-  inset: auto 20px 17px;
+.program-icon {
+  color: #F5C75A;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 8px;
 }
 
-.card-icon {
-  color: #D6A52E;
-  margin-bottom: 10px;
-}
-
-.card-content h3 {
+.program-card-content h3 {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 20px;
+  font-size: clamp(20px, 1.55vw, 27px);
   line-height: .95;
-  max-width: 240px;
-  margin: 0 0 7px;
+  margin: 0 0 9px;
   font-weight: 600;
   color: #F5F5F2;
 }
 
-.card-content p {
+.program-description,
+.program-secondary-description {
   color: #B9C2C3;
-  max-width: 230px;
   margin: 0;
   font-size: 10.5px;
-  line-height: 1.35;
+  line-height: 1.4;
 }
 
-.card-arrow {
-  position: absolute;
-  right: 18px;
-  bottom: 19px;
-  color: #D6A52E;
-  transition: transform .2s;
+.program-card-content h4 {
+  color: #F5C75A;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px;
+  line-height: 1;
+  margin: 10px 0 4px;
 }
 
-.program-card:hover .card-arrow {
-  transform: translateX(5px);
+.program-secondary-description {
+  font-size: 9.5px;
+  line-height: 1.3;
+}
+
+.program-phrase {
+  color: #F5C75A;
+  font-family: 'Caveat', cursive;
+  font-size: clamp(21px, 2vw, 29px);
+  line-height: .9;
+  font-weight: 600;
+  align-self: flex-end;
+  max-width: 94%;
+  margin: auto 0 0;
+  text-align: right;
+  transform: rotate(-4deg);
+}
+
+.program-promo {
+  width: 100%;
+  margin-top: 11px;
+  padding: 8px 10px;
+  color: #03090B;
+  background: #F5C75A;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(14px, 1.25vw, 20px);
+  line-height: .95;
+  font-weight: 800;
+  letter-spacing: .02em;
+  text-align: center;
 }
 
 
@@ -716,6 +743,12 @@ h1 em {
    RESPONSIVE — TABLET
    ========================================================= */
 
+@media (max-width: 1023px) {
+  .program-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 900px) {
 
   .container {
@@ -767,8 +800,7 @@ h1 em {
   }
 
   /* BENEFITS */
-  .benefits-grid,
-  .program-grid {
+  .benefits-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -921,7 +953,41 @@ h1 em {
   }
 
   .program-card {
-    height: 200px;
+    display: block;
+  }
+
+  .program-image-wrap {
+    height: 184px;
+    min-height: 0;
+    border-right: 0;
+    border-bottom: 1px solid rgba(214,165,46,.72);
+  }
+
+  .program-image-wrap img {
+    min-height: 0;
+    height: 100%;
+  }
+
+  .program-card-content {
+    min-height: 224px;
+    padding: 17px 17px 15px;
+  }
+
+  .program-card-content h3 {
+    font-size: 25px;
+  }
+
+  .program-description,
+  .program-secondary-description {
+    font-size: 11px;
+  }
+
+  .program-phrase {
+    font-size: 27px;
+  }
+
+  .program-promo {
+    font-size: 17px;
   }
 
   /* FOOTER — мобильный */
