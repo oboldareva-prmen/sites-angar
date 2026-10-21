@@ -23,17 +23,24 @@ const initialValues: FormValues = {
 export function CallbackModal({ open, onClose }: CallbackModalProps) {
   const [values, setValues] = useState<FormValues>(initialValues);
   const [error, setError] = useState('');
+  const [consentError, setConsentError] = useState('');
   const [unavailable, setUnavailable] = useState(false);
 
   useEffect(() => {
-    if (!open) return undefined;
+    if (open) {
+      const handleKeyDown = (event: KeyboardEvent) => {
+        if (event.key === 'Escape') onClose();
+      };
 
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') onClose();
-    };
+      document.addEventListener('keydown', handleKeyDown);
+      return () => document.removeEventListener('keydown', handleKeyDown);
+    }
 
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
+    setValues(initialValues);
+    setError('');
+    setConsentError('');
+    setUnavailable(false);
+    return undefined;
   }, [onClose, open]);
 
   if (!open) return null;
@@ -43,15 +50,16 @@ export function CallbackModal({ open, onClose }: CallbackModalProps) {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setError('');
+    setConsentError('');
     setUnavailable(false);
 
-    if (!values.name.trim() || !values.phone.trim()) {
-      setError('Заполните имя и телефон.');
+    if (!values.phone.trim()) {
+      setError('Укажите номер телефона.');
       return;
     }
 
     if (!values.consent) {
-      setError('Нужно согласиться на обработку персональных данных.');
+      setConsentError('Для отправки заявки необходимо дать согласие на обработку персональных данных');
       return;
     }
 
@@ -74,13 +82,13 @@ export function CallbackModal({ open, onClose }: CallbackModalProps) {
 
         <form onSubmit={handleSubmit} noValidate>
           <label>
-            Имя <span>*</span>
+            Имя
             <input
               type="text"
               value={values.name}
               onChange={(event) => setValues({ ...values, name: event.target.value })}
               autoComplete="name"
-              required
+              autoFocus
             />
           </label>
           <label>
@@ -106,13 +114,22 @@ export function CallbackModal({ open, onClose }: CallbackModalProps) {
             <input
               type="checkbox"
               checked={values.consent}
-              onChange={(event) => setValues({ ...values, consent: event.target.checked })}
+              onChange={(event) => {
+                setValues({ ...values, consent: event.target.checked });
+                setConsentError('');
+              }}
+              aria-describedby={consentError ? 'consent-error' : undefined}
               required
             />
-            <span>Согласен(а) на обработку персональных данных <b>*</b></span>
+            <span>
+              Я согласен(на) на обработку персональных данных и ознакомился(лась) с{' '}
+              <a href="/privacy" target="_blank" rel="noreferrer">Политикой обработки персональных данных</a>{' '}
+              и <a href="/consent" target="_blank" rel="noreferrer">Согласием на обработку персональных данных</a>.
+            </span>
           </label>
+          {consentError && <p className="callback-message callback-error" id="consent-error" role="alert">{consentError}</p>}
           {error && <p className="callback-message callback-error" role="alert">{error}</p>}
-          {unavailable && <p className="callback-message callback-unavailable" role="status">Форма готова, но отправка заявок пока не подключена.</p>}
+          {unavailable && <p className="callback-message callback-unavailable" role="status">Форма проверена, но доставка заявок пока не подключена.</p>}
           <button className="callback-submit" type="submit">ЗАКАЗАТЬ ЗВОНОК</button>
         </form>
       </div>

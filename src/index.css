@@ -713,35 +713,51 @@ h1 em {
    CALLBACK BUTTON + MODAL
    ========================================================= */
 
-.callback-floating-button {
-  position: fixed;
-  z-index: 20;
-  right: 24px;
-  bottom: 24px;
-  display: inline-flex;
+.callback-cta {
+  display: flex;
   align-items: center;
-  gap: 9px;
-  min-height: 48px;
-  max-width: calc(100vw - 48px);
-  padding: 12px 17px;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 8px;
+  margin-bottom: 34px;
+  padding: 20px 24px;
+  border: 1px solid rgba(214,165,46,.75);
+  border-radius: 4px;
+  background: #071013;
+}
+
+.callback-cta .eyebrow {
+  margin: 0 0 5px;
+}
+
+.callback-cta h2 {
+  margin: 0;
+  color: #F5F5F2;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(25px, 3vw, 38px);
+  line-height: .9;
+}
+
+.callback-cta-button {
+  flex: 0 0 auto;
+  min-height: 46px;
+  padding: 12px 20px;
   border: 1px solid #F5C75A;
   border-radius: 4px;
   background: #D6A52E;
   color: #03090B;
   cursor: pointer;
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1;
   font-weight: 700;
   letter-spacing: .025em;
-  box-shadow: 0 8px 24px rgba(0,0,0,.35);
-  transition: background .2s, transform .2s, box-shadow .2s;
+  transition: background .2s, transform .2s;
 }
 
-.callback-floating-button:hover {
+.callback-cta-button:hover {
   background: #F5C75A;
   transform: translateY(-2px);
-  box-shadow: 0 11px 28px rgba(0,0,0,.4);
 }
 
 .callback-modal {
@@ -863,6 +879,16 @@ h1 em {
   color: #B9C2C3 !important;
 }
 
+.callback-consent a {
+  color: #F5C75A;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.callback-consent a:hover {
+  color: #F5F5F2;
+}
+
 .callback-consent b {
   color: #F5C75A;
 }
@@ -901,6 +927,86 @@ h1 em {
 
 .callback-submit:hover {
   background: #F5C75A;
+}
+
+/* =========================================================
+   LEGAL DOCUMENTS
+   ========================================================= */
+
+.legal-page {
+  min-height: 100vh;
+  padding: 32px 20px 48px;
+  background: #03090B;
+}
+
+.legal-document {
+  width: min(820px, 100%);
+  margin: 0 auto;
+  padding: clamp(22px, 5vw, 52px);
+  border: 1px solid rgba(214,165,46,.65);
+  border-radius: 4px;
+  background: #071013;
+}
+
+.legal-back {
+  display: inline-block;
+  margin-bottom: 34px;
+  color: #F5C75A;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.legal-back:hover {
+  color: #F5F5F2;
+}
+
+.legal-markdown h1,
+.legal-markdown h2 {
+  color: #F5F5F2;
+  font-family: 'Barlow Condensed', sans-serif;
+  line-height: 1;
+  font-weight: 600;
+}
+
+.legal-markdown h1 {
+  margin: 0 0 28px;
+  font-size: clamp(30px, 5vw, 48px);
+}
+
+.legal-markdown h2 {
+  margin: 30px 0 12px;
+  color: #F5C75A;
+  font-size: 27px;
+}
+
+.legal-markdown p,
+.legal-markdown li {
+  color: #B9C2C3;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.legal-markdown p {
+  margin: 0 0 14px;
+}
+
+.legal-markdown strong {
+  color: #F5F5F2;
+}
+
+.legal-markdown ul {
+  margin: 0 0 18px;
+  padding-left: 22px;
+}
+
+.legal-markdown li {
+  padding-left: 4px;
+  margin-bottom: 5px;
+}
+
+.legal-back-bottom {
+  margin: 25px 0 0;
 }
 
 /* =========================================================
@@ -1170,11 +1276,6 @@ h1 em {
     grid-template-rows: 190px minmax(250px, auto);
   }
 
-  .callback-floating-button {
-    right: 18px;
-    bottom: calc(18px + env(safe-area-inset-bottom));
-  }
-
   .benefit:nth-child(2) {
     border-right: 0;
   }
@@ -1321,16 +1422,17 @@ h1 em {
     margin-top: 17px;
   }
 
-  .callback-floating-button {
-    right: 18px;
-    bottom: calc(14px + env(safe-area-inset-bottom));
-    left: 18px;
-    justify-content: center;
-    width: auto;
-    max-width: none;
-    min-height: 52px;
-    padding: 13px 14px;
-    font-size: 16px;
+  .callback-cta {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 0;
+    margin-bottom: 26px;
+    padding: 18px;
+  }
+
+  .callback-cta-button {
+    width: 100%;
   }
 
   .callback-modal {
