@@ -517,9 +517,12 @@ h1 em {
 }
 
 
+
 /* =========================================================
    TRAINERS
    ========================================================= */
+
+
 
 .trainers {
   padding: 28px 0 36px;
@@ -555,7 +558,7 @@ h1 em {
 .trainer-card {
   min-width: 0;
   display: grid;
-  grid-template-rows: 190px minmax(250px, auto);
+  grid-template-rows: 190px minmax(0, 1fr);
   overflow: hidden;
   border: 1px solid #D6A52E;
   border-radius: 4px;
@@ -566,21 +569,22 @@ h1 em {
 .trainer-card:hover {
   transform: translateY(-3px);
   border-color: #F5C75A;
-  box-shadow: 0 12px 28px rgba(0,0,0,.28);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .28);
 }
 
 .trainer-image-wrap {
   position: relative;
   min-width: 0;
+  min-height: 0;
   overflow: hidden;
-  border-bottom: 1px solid rgba(214,165,46,.72);
+  border-bottom: 1px solid rgba(214, 165, 46, .72);
 }
 
 .trainer-image-wrap::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(0deg, rgba(3,9,11,.65), transparent 48%);
+  background: linear-gradient(0deg, rgba(3, 9, 11, .65), transparent 48%);
   pointer-events: none;
 }
 
@@ -604,7 +608,7 @@ h1 em {
   z-index: 1;
   left: 12px;
   bottom: 9px;
-  color: rgba(245,199,90,.92);
+  color: rgba(245, 199, 90, .92);
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 10px;
   letter-spacing: .06em;
@@ -612,35 +616,52 @@ h1 em {
 
 .trainer-card-content {
   min-width: 0;
-  display: grid;
-  grid-template-rows: 40px 28px 106px 1px minmax(0, 1fr);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   padding: 13px 13px 15px;
 }
 
 .trainer-card h3 {
   min-width: 0;
-  margin: 0;
+  margin: 0 0 8px;
   color: #F5F5F2;
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 21px;
-  line-height: .95;
+  line-height: 1.1;
   font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.trainer-role1 {
+  display: block;
+  position: static;
+  min-width: 0;
+        min-height: 60px;
+  font-size: 14px;
+  line-height: 1.35;
+  margin: 0 0 10px;
+
+  color: #F5F5F2;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 600;
+  overflow-wrap: anywhere;
 }
 
 .trainer-role {
-  min-width: 0;
-  margin: 0;
+  display: block;
+  position: static;
+  min-width: 48;
+  height: auto;
+  margin: 0 0 14px;
   color: #F5C75A;
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 11px;
-  line-height: 1.1;
+  line-height: 1.4;
   font-weight: 600;
-}
-
-.trainer-divider {
-  height: 1px;
-  margin: 0;
-  background: rgba(214,165,46,.72);
+  overflow-wrap: anywhere;
 }
 
 .trainer-specialization {
@@ -665,27 +686,98 @@ h1 em {
 
 .trainer-specialization strong {
   display: block;
-  margin-bottom: 3px;
+  margin-bottom: 5px;
   color: #D6A52E;
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 11px;
-  line-height: 1;
+  line-height: 1.2;
 }
 
 .trainer-specialization p,
 .trainer-description {
   color: #B9C2C3;
   font-size: 10px;
-  line-height: 1.35;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
 }
 
 .trainer-specialization p {
   margin: 0;
 }
 
+.trainer-divider {
+  flex: 0 0 1px;
+  width: 100%;
+  height: 1px;
+  margin: 14px 0 0;
+  background: rgba(214, 165, 46, .72);
+}
+
 .trainer-description {
   min-width: 0;
-  margin: 14px 0 0;
+  margin: 12px 0 0;
+}
+
+/* Планшеты */
+@media (max-width: 1100px) {
+  .trainers-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Мобильные устройства */
+@media (max-width: 560px) {
+  .trainers {
+    padding: 24px 0 30px;
+  }
+
+  .trainers-heading {
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    margin-bottom: 16px;
+  }
+
+  .trainers-heading h2 {
+    font-size: 27px;
+  }
+
+  .trainers-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .trainer-card {
+    grid-template-rows: 220px minmax(0, 1fr);
+  }
+
+  .trainer-card-content {
+    padding: 14px;
+  }
+
+  .trainer-card h3 {
+    font-size: 23px;
+  }
+
+  .trainer-role1{
+      min-height: 40px;
+  font-size: 14px;
+  line-height: 1.35;
+  margin: 0 0 10px;
+    
+  }
+  .trainer-role {
+          min-height: 48px;
+    font-size: 12px;
+  }
+
+  .trainer-specialization strong {
+    font-size: 12px;
+  }
+
+  .trainer-specialization p,
+  .trainer-description {
+    font-size: 11px;
+  }
 }
 
 /* =========================================================

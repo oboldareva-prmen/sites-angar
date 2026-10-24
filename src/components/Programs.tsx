@@ -32,18 +32,18 @@ const programs: Program[] = [
     secondaryDescription: 'Современный спорт, развивающий силу, выносливость, координацию и уверенность в себе. Дружная атмосфера и опытные тренеры',
     phrase: 'Сильное поколение начинается здесь!',
     icon: UsersRound,
-    image: 'https://images.pexels.com/photos/15149190/pexels-photo-15149190.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    image: '/ДГ.jpg',
   },
 ];
 
 export function Programs() {
   return (
-    <section className="programs container" id="programs">
-      <div className="programs-heading">
-        <p className="eyebrow">ЭФФЕКТИВНЫЕ ФОРМАТЫ ТРЕНИРОВОК</p>
-        <h2>ПРОГРАММЫ<span>тренировок</span></h2>
+       <section className="trainers container" id="trainers">
+      <div className="trainers-heading">
+        <p className="eyebrow">ЭФФЕКТИВНЫЕ ФОРМАТЫ</p>
+        <h2>ПРОГРАММЫ ТРЕНИРОВОК</h2>
       </div>
-      <div className="program-grid">
+         <div className="program-grid">
         {programs.map((program) => (
           <ProgramCard key={program.title} program={program} />
         ))}

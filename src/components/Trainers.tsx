@@ -2,36 +2,40 @@ import { Dumbbell, Leaf, UserRound } from 'lucide-react';
 
 const trainers = [
   {
-    name: 'АЛЕКСЕЙ КУЗНЕЦОВ',
-    role: 'ГЛАВНЫЙ ТРЕНЕР. КРОССФИТ',
-    specialization: 'ФУНКЦИОНАЛЬНЫЙ ТРЕНИНГ, КРОССФИТ, ОБЩАЯ ПОДГОТОВКА',
-    description: 'Опыт работы более 10 лет. Помогает достигать целей через силу, дисциплину и грамотную нагрузку. Работает с любым уровнем подготовки.',
-    image: '/angar_hero.jpg',
-    icon: Dumbbell,
-  },
-  {
-    name: 'МАРИЯ ПЕТРОВА',
-    role: 'ТРЕНЕР. ФУНКЦИОНАЛЬНЫЙ ФИТНЕС',
-    specialization: 'СНИЖЕНИЕ ВЕСА, ТОНУС, ЗДОРОВАЯ СПИНА, ЖЕНСКИЙ ФИТНЕС',
-    description: 'Строго, но с заботой. Помогает женщинам становиться сильнее, увереннее и чувствовать себя лучше. Индивидуальный подход к каждой тренировке.',
-    image: '/Personal.jpg',
+    name: 'ПРОСКУРЯКОВА КРИСТИНА' ,
+     roleMA: 'Тренер с опытом более 20 лет. Специалист по коррекции фигуры и функциональной подготовке.',
+     role: 'ГЛАВНЫЙ ТРЕНЕР. Индивидуальный подход • грамотная нагрузка • результат',
+    specialization: 'ФУНКЦИОНАЛЬНЫЕ ТРЕНИРОВКИ. СНИЖЕНИЕ ВЕСА, ТОНУС, ЗДОРОВАЯ СПИНА, ЖЕНСКИЙ ФИТНЕС, РАСТЯЖКА И МОБИЛЬНОСТЬ',
+    description: 'Опыт работы более 20 лет.  Авторская методика тренировок с собственным весом,Коррекция фигуры, ОФП и СФП для детей, СФП для командных видов спорта, Восстановительные и реабилитационные тренировки, Развитие мобильности и гибкости всего тела, Функциональная подготовка. Помогает достигать целей через силу, дисциплину и грамотную нагрузку. Работает с любым уровнем подготовки.',
+    image: '',
     icon: UserRound,
   },
   {
-    name: 'ДМИТРИЙ САВЕЛЬЕВ',
-    role: 'ТРЕНЕР. СИЛОВЫЕ ТРЕНИРОВКИ',
-    specialization: 'НАБОР МЫШЕЧНОЙ МАССЫ, СИЛОВЫЕ ТРЕНИРОВКИ, ПОДГОТОВКА К СОРЕВНОВАНИЯМ',
-    description: 'Более 8 лет в профессии. Помогает раскрыть потенциал, строить сильное тело и достигать спортивных целей.',
-    image: '/gym.jpg',
+    name:  'ГАСЬКОВ ДМИТРИЙ' ,
+    roleMA: '20+ лет в спорте. Функциональный тренер. Специалист по силовым тренировкам и подготовке к соревнованиям.',
+  role: ' ВЕДУЩИЙ ТРЕНЕР. 20+ лет в спорте • дисциплина • сила • функциональность',
+    specialization: 'ФУНКЦИОНАЛЬНЫЕ и СИЛОВЫЕ ТРЕНИРОВКИ. ОФП, СФП ДЛЯ ДЕТЕЙ, ПОДГОТОВКА К  ГТО И ЛЮБЫМ ВИДАМ СПОРТА, СИЛЫ И ТОНУС',
+    description: 'Тренерский стаж — 2 года. В спорте — более 20 лет. Выступающий спортсмен по джиу-джитсу.Пурпурный пояс. Мощь, сила, драйв каждой тренировки. Индивидуальная подготовка под цели и запрос клиента.',
+    image: '',
     icon: Dumbbell,
   },
   {
-    name: 'ЕЛЕНА ВАСИЛЬЕВА',
-    role: 'ТРЕНЕР. РАСТЯЖКА И МОБИЛЬНОСТЬ',
-    specialization: 'РАСТЯЖКА, МОБИЛЬНОСТЬ, ЙОГА, ВОССТАНОВЛЕНИЕ',
-    description: 'Помогает улучшить гибкость, снять напряжение и вернуть телу лёгкость. Вдохновляет на осознанное движение и заботу о себе.',
-    image: '/Split.jpg',
+    name: 'МАРИЯ',
+    roleMA: '8+ лет в профессии. Специалист по коррекции фигуры и силовой подготовке.',
+    role: 'ТРЕНЕР. ТРЕНЕР ТРЕНАЖЕРНОГО ЗАЛА. Сильное тело • гармоничная форма • грамотный подход',
+    specialization: 'СИЛОВЫЕ ТРЕНИРОВКИ,  СНИЖЕНИЕ ВЕСА, ТОНУС, МИОФАСЦИАЛЬНЫЙ МАССАЖ С СОБСТВЕННЫМ ВЕСОМ, РАСТЯЖКА И МОБИЛЬНОСТЬ',
+    description: 'Более 8 лет в профессии. Помогает раскрыть потенциал, строить сильное тело и достигать спортивных целей. Индивидуальный подбор тренировочной нагрузки.',
+    image: '',
     icon: Leaf,
+  },
+  {
+    name: 'ЧИЧЬКОВА ТАТЬЯНА',
+    roleMA: '6+ лет в профессии. Специалист по коррекции фигуры и силовым тренировкам.',
+    role: 'ТРЕНЕР. Сильное тело • красивые формы • системный подход • CrossFit',
+    specialization: 'КОРРЕКЦИЯ ФИГУРЫ, ФОРМИРОВАНИЕ КРАСИВЫХ И СИЛЬНЫХ ЯГОДИЦ, СИЛОВЫЕ ТРЕНИРОВКИ, РАБОТА НАД ПРОПОРЦИЯМИ И РЕЛЬЕФОМ ТЕЛА',
+    description: 'Тренерский стаж более 6 лет. Помогает женщинам становиться сильнее, увереннее и чувствовать себя лучше. Комплексный подход: тренировки + питание, Индивидуальный подбор нагрузки и программы',
+    image: '/ЧТ.jpg',
+    icon: Dumbbell,
   },
 ];
 
@@ -44,27 +48,44 @@ export function Trainers() {
       </div>
 
       <div className="trainers-grid">
-        {trainers.map(({ name, role, specialization, description, image, icon: Icon }) => (
-          <article className="trainer-card" key={name}>
-            <div className="trainer-image-wrap">
-              <img src={image} alt="" loading="lazy" />
-              <span className="trainer-image-note">ФОТО ТРЕНЕРА БУДЕТ ДОБАВЛЕНО</span>
-            </div>
-            <div className="trainer-card-content">
-              <h3>{name}</h3>
-              <p className="trainer-role">{role}</p>
-              <div className="trainer-specialization">
-                <span className="trainer-icon"><Icon size={25} strokeWidth={1.5} /></span>
-                <div>
-                  <strong>СПЕЦИАЛИЗАЦИЯ:</strong>
-                  <p>{specialization}</p>
-                </div>
-              </div>
-              <div className="trainer-divider" />
-              <p className="trainer-description">{description}</p>
-            </div>
-          </article>
-        ))}
+        {trainers.map(
+  ({ name, role, roleMA, specialization, description, image, icon: Icon }) => (
+    <article className="trainer-card" key={name}>
+      <div className="trainer-image-wrap">
+        {image ? (
+          <img src={image} alt={name} loading="lazy" />
+        ) : (
+          <span className="trainer-image-note">
+            ФОТО ТРЕНЕРА БУДЕТ ДОБАВЛЕНО
+          </span>
+        )}
+      </div>
+
+      <div className="trainer-card-content">
+        <h3>{name}</h3>
+
+        <p className="trainer-role1" style={{ color: '#F5F5F2' }}>
+          {roleMA}
+        </p>
+
+        <p className="trainer-role">{role}</p>
+
+        <div className="trainer-specialization">
+          <span className="trainer-icon">
+            <Icon size={25} strokeWidth={1.5} />
+          </span>
+          <div>
+            <strong>СПЕЦИАЛИЗАЦИЯ:</strong>
+            <p>{specialization}</p>
+          </div>
+        </div>
+
+        <div className="trainer-divider" />
+        <p className="trainer-description">{description}</p>
+      </div>
+    </article>
+  )
+)}
       </div>
     </section>
   );

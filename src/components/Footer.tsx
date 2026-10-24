@@ -41,7 +41,7 @@ export function Footer() {
 
           <div className="telegram">
             <Send size={22} />
-            <span>@OV_Bolshedvorskaya</span>
+            <span>@techno_witch737</span>
           </div>
         </div>
 
