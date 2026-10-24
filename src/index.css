@@ -51,16 +51,12 @@ button {
    ========================================================= */
 
 .header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
+  position: relative;
+  z-index: 3;
   height: 92px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(3,9,11,.82);
-  backdrop-filter: blur(8px);
-  transition: background .3s;
 }
 
 .brand {
@@ -100,26 +96,6 @@ button {
   font-size: 10px;
   letter-spacing: .07em;
   font-weight: 600;
-}
-
-.header-nav {
-  display: flex;
-  gap: 26px;
-}
-
-.header-nav a {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: .04em;
-  color: #B9C2C3;
-  transition: color .2s;
-}
-
-.header-nav a:hover,
-.header-nav a:focus-visible {
-  color: #F5C75A;
-  outline: none;
 }
 
 /* =========================================================
@@ -939,43 +915,6 @@ h1 em {
   transform: none;
 }
 
-.floating-callback {
-  position: fixed;
-  z-index: 40;
-  right: 24px;
-  bottom: 24px;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 20px;
-  border: 1px solid #F5C75A;
-  border-radius: 100px;
-  background: #D6A52E;
-  color: #03090B;
-  cursor: pointer;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: .03em;
-  box-shadow: 0 8px 24px rgba(0,0,0,.4);
-  opacity: 0;
-  transform: translateY(20px);
-  pointer-events: none;
-  transition: opacity .3s, transform .3s, background .2s;
-  margin-bottom: env(safe-area-inset-bottom, 0px);
-}
-
-.floating-callback.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-.floating-callback:hover {
-  background: #F5C75A;
-  transform: translateY(-2px);
-}
-
 /* =========================================================
    LEGAL DOCUMENTS
    ========================================================= */
@@ -1270,14 +1209,6 @@ h1 em {
     height: 80px;
   }
 
-  .header-nav {
-    gap: 18px;
-  }
-
-  .header-nav a {
-    font-size: 13px;
-  }
-
   /* HERO — планшет */
 
  /* HERO — планшет */
@@ -1368,21 +1299,6 @@ h1 em {
 
   .brand-caption {
     font-size: 7px;
-  }
-
-  .header-nav {
-    gap: 12px;
-  }
-
-  .header-nav a {
-    font-size: 12px;
-  }
-
-  .floating-callback {
-    right: 16px;
-    bottom: 16px;
-    padding: 12px 16px;
-    font-size: 13px;
   }
 
   /* HERO — мобильный */

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { X } from 'lucide-react';
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
@@ -8,7 +8,6 @@ import { Trainers } from '@/components/Trainers';
 import { Footer } from '@/components/Footer';
 import { CallbackModal } from '@/components/CallbackModal';
 import { CallbackCta } from '@/components/CallbackCta';
-import { FloatingCallback } from '@/components/FloatingCallback';
 import { LegalDocument } from '@/components/LegalDocument';
 import { AdminRequestsPage } from '@/components/AdminRequestsPage';
 
@@ -29,14 +28,6 @@ function App() {
 function SiteApp() {
   const [videoOpen, setVideoOpen] = useState(false);
   const [callbackOpen, setCallbackOpen] = useState(false);
-  const [floatingVisible, setFloatingVisible] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setFloatingVisible(window.scrollY > 420);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   return (
     <>
@@ -55,7 +46,6 @@ function SiteApp() {
         <Footer />
       </main>
 
-      <FloatingCallback visible={floatingVisible && !callbackOpen} onOpen={() => setCallbackOpen(true)} />
       <CallbackModal open={callbackOpen} onClose={() => setCallbackOpen(false)} />
 
       {videoOpen && (
