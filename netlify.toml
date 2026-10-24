@@ -41,3 +41,15 @@
   to = "/index.html"
   status = 200
   force = false
+
+[[redirects]]
+  from = "/consent"
+  to = "/index.html"
+  status = 200
+  force = false
+
+[[redirects]]
+  from = "/privacy"
+  to = "/index.html"
+  status = 200
+  force = false
