@@ -612,11 +612,14 @@ h1 em {
 
 .trainer-card-content {
   min-width: 0;
+  display: grid;
+  grid-template-rows: 40px 28px 106px 1px minmax(0, 1fr);
   padding: 13px 13px 15px;
 }
 
 .trainer-card h3 {
-  margin: 0 0 4px;
+  min-width: 0;
+  margin: 0;
   color: #F5F5F2;
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 21px;
@@ -625,6 +628,7 @@ h1 em {
 }
 
 .trainer-role {
+  min-width: 0;
   margin: 0;
   color: #F5C75A;
   font-family: 'Barlow Condensed', sans-serif;
@@ -635,22 +639,28 @@ h1 em {
 
 .trainer-divider {
   height: 1px;
-  margin: 12px 0 10px;
+  margin: 0;
   background: rgba(214,165,46,.72);
 }
 
 .trainer-specialization {
-  display: flex;
+  display: grid;
+  grid-template-columns: 31px minmax(0, 1fr);
   gap: 9px;
   min-width: 0;
-  align-items: flex-start;
+  align-items: start;
 }
 
 .trainer-icon {
-  flex: 0 0 31px;
   display: grid;
   place-items: center;
+  width: 31px;
+  height: 31px;
   color: #D6A52E;
+}
+
+.trainer-specialization > div {
+  min-width: 0;
 }
 
 .trainer-specialization strong {
@@ -674,7 +684,8 @@ h1 em {
 }
 
 .trainer-description {
-  margin: 15px 0 0;
+  min-width: 0;
+  margin: 14px 0 0;
 }
 
 /* =========================================================
@@ -1365,11 +1376,8 @@ h1 em {
   }
 
   .trainer-card-content {
+    grid-template-rows: 40px 28px 106px 1px minmax(0, 1fr);
     padding: 15px 16px 18px;
-  }
-
-  .trainer-description {
-    margin-top: 17px;
   }
 
   .callback-cta {

@@ -53,7 +53,6 @@ export function Trainers() {
             <div className="trainer-card-content">
               <h3>{name}</h3>
               <p className="trainer-role">{role}</p>
-              <div className="trainer-divider" />
               <div className="trainer-specialization">
                 <span className="trainer-icon"><Icon size={25} strokeWidth={1.5} /></span>
                 <div>
@@ -61,6 +60,7 @@ export function Trainers() {
                   <p>{specialization}</p>
                 </div>
               </div>
+              <div className="trainer-divider" />
               <p className="trainer-description">{description}</p>
             </div>
           </article>
