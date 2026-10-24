@@ -22,7 +22,6 @@ function App() {
 }
 
 function SiteApp() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [videoOpen, setVideoOpen] = useState(false);
   const [callbackOpen, setCallbackOpen] = useState(false);
 
@@ -31,7 +30,7 @@ function SiteApp() {
       <main className="site-shell">
         <section className="hero" style={{ backgroundImage: `url(${heroImage})` }}>
           <div className="hero-overlay" />
-          <Header menuOpen={menuOpen} onToggle={() => setMenuOpen(!menuOpen)} onNavigate={() => setMenuOpen(false)} />
+          <Header />
           <Hero onVideoOpen={() => setVideoOpen(true)} />
         </section>
         <Benefits />

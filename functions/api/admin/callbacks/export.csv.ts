@@ -6,6 +6,7 @@ type CallbackRow = {
   name: string | null;
   phone: string;
   consent_given: number;
+  callback_time: string | null;
   call_date: string | null;
   result: string | null;
   comment: string;
@@ -18,16 +19,17 @@ export const onRequestGet: PagesFunction<PagesContext['env']> = async (context) 
 
   try {
     const result = await context.env.DB.prepare(`
-      SELECT id, submitted_at, name, phone, consent_given, call_date, result, comment
+      SELECT id, submitted_at, name, phone, consent_given, callback_time, call_date, result, comment
       FROM callback_requests
       ORDER BY submitted_at ASC
     `).all<CallbackRow>();
-    const columns = ['ID заявки', 'Дата заявки', 'Имя', 'Телефон', 'Согласие на обработку ПД', 'Дата звонка', 'Результат', 'Комментарий'];
+    const columns = ['ID заявки', 'Дата заявки', 'Имя', 'Телефон', 'Удобное время для звонка', 'Согласие на обработку ПД', 'Дата звонка', 'Результат', 'Комментарий'];
     const rows = result.results.map((row) => csvRow([
       row.id,
       row.submitted_at,
       row.name,
       row.phone,
+      row.callback_time,
       row.consent_given === 1 ? 'Да' : 'Нет',
       row.call_date,
       row.result,

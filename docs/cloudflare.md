@@ -57,7 +57,7 @@ For local development, create an untracked `.dev.vars` file with the same names.
 3. Request `GET /api/admin/callbacks/export.csv` with that cookie.
 4. Open the downloaded `callback_requests_YYYY-MM-DD.csv` in Excel.
 
-The columns are fixed: ID заявки, Дата заявки, Имя, Телефон, Согласие на обработку ПД, Дата звонка, Результат, Комментарий.
+The columns are fixed: ID заявки, Дата заявки, Имя, Телефон, Удобное время для звонка, Согласие на обработку ПД, Дата звонка, Результат, Комментарий.
 
 New rows leave CRM fields empty. Recommended result values are `Новый`, `Дозвонились`, `Не дозвонились`, `Перезвонить`, `Заинтересован`, `Отказ`, and `Клиент привлечён`.
 
@@ -71,7 +71,7 @@ After deploying, test:
 2. Submit a valid request — confirm the row in D1 and confirm the success response.
 3. Repeat the same request with the same `Idempotency-Key` — confirm no second row appears.
 4. Test a phone with spaces, quotes, Cyrillic name, and a line break in the optional name.
-5. Log in as admin and download CSV; confirm BOM, eight columns, and empty CRM fields.
+5. Log in as admin and download CSV; confirm BOM, nine columns, and empty CRM fields.
 6. Request export without the session cookie — confirm `403`.
 7. Temporarily break Telegram credentials — confirm the D1 row remains and the UI reports the notification issue.
 

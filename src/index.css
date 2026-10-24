@@ -98,44 +98,6 @@ button {
   font-weight: 600;
 }
 
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 46px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 17px;
-  font-weight: 600;
-  letter-spacing: .03em;
-}
-
-.nav a {
-  padding: 10px 0;
-  opacity: .92;
-  border-bottom: 2px solid transparent;
-  transition: color .2s, border-color .2s, opacity .2s;
-}
-
-.nav a:hover {
-  opacity: 1;
-}
-
-.nav .active {
-  color: #F5C75A;
-  border-color: #F5C75A;
-  opacity: 1;
-}
-
-.menu-button {
-  border: 0;
-  background: transparent;
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-  color: #F5C75A;
-  padding: 8px;
-}
-
-
 /* =========================================================
    HERO
    МЕСТО ДЛЯ ПОСЛЕДУЮЩЕЙ НАСТРОЙКИ ФОТО:
@@ -1221,24 +1183,6 @@ h1 em {
 
   .header {
     height: 80px;
-  }
-
-  .nav {
-    position: absolute;
-    top: 70px;
-    right: 0;
-    display: none;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 6px;
-    width: 220px;
-    padding: 18px 22px;
-    background: rgba(7,16,19,.97);
-    border: 1px solid rgba(214,165,46,.45);
-  }
-
-  .nav.nav-open {
-    display: flex;
   }
 
   /* HERO — планшет */

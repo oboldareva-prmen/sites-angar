@@ -9,12 +9,13 @@ type CallbackModalProps = {
 type FormValues = {
   name: string;
   phone: string;
+  preferredCallTime: string;
   consent: boolean;
 };
 
 type SubmitStatus = 'idle' | 'sending' | 'success' | 'error';
 
-const initialValues: FormValues = { name: '', phone: '', consent: false };
+const initialValues: FormValues = { name: '', phone: '', preferredCallTime: '', consent: false };
 
 function newIdempotencyKey(): string {
   return crypto.randomUUID();
@@ -64,7 +65,7 @@ export function CallbackModal({ open, onClose }: CallbackModalProps) {
       const response = await fetch('/api/callback', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Idempotency-Key': idempotencyKey },
-        body: JSON.stringify({ name: values.name, phone: values.phone, consent: values.consent }),
+        body: JSON.stringify({ name: values.name, phone: values.phone, callbackTime: values.preferredCallTime.trim() || undefined, consent: values.consent }),
       });
       const result = await response.json().catch(() => null) as { accepted?: unknown; notification?: unknown } | null;
       if (!response.ok || result?.accepted !== true) throw new Error('request_failed');
@@ -102,6 +103,10 @@ export function CallbackModal({ open, onClose }: CallbackModalProps) {
             <label>
               Телефон <span>*</span>
               <input type="tel" value={values.phone} onChange={(event) => setValues({ ...values, phone: event.target.value })} autoComplete="tel" required />
+            </label>
+            <label>
+              Удобное время для звонка
+              <input type="text" value={values.preferredCallTime} onChange={(event) => setValues({ ...values, preferredCallTime: event.target.value })} placeholder="Например, после 18:00" maxLength={120} autoComplete="off" inputMode="text" />
             </label>
             <label className="callback-consent">
               <input type="checkbox" checked={values.consent} onChange={(event) => setValues({ ...values, consent: event.target.checked })} required />
