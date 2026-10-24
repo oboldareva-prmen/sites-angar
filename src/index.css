@@ -1376,8 +1376,12 @@ h1 em {
   }
 
   .trainer-card-content {
-    grid-template-rows: 40px 28px 106px 1px minmax(0, 1fr);
+    grid-template-rows: auto auto auto 1px auto;
     padding: 15px 16px 18px;
+  }
+
+  .trainer-specialization {
+    min-height: 0;
   }
 
   .callback-cta {
