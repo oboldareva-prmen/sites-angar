@@ -39,6 +39,10 @@ const programs: Program[] = [
 export function Programs() {
   return (
     <section className="programs container" id="programs">
+      <div className="programs-heading">
+        <p className="eyebrow">ЭФФЕКТИВНЫЕ ФОРМАТЫ ТРЕНИРОВОК</p>
+        <h2>ПРОГРАММЫ<span>тренировок</span></h2>
+      </div>
       <div className="program-grid">
         {programs.map((program) => (
           <ProgramCard key={program.title} program={program} />

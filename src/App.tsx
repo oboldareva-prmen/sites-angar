@@ -7,6 +7,7 @@ import { Programs } from '@/components/Programs';
 import { Trainers } from '@/components/Trainers';
 import { Footer } from '@/components/Footer';
 import { CallbackModal } from '@/components/CallbackModal';
+import { CallbackCta } from '@/components/CallbackCta';
 import { LegalDocument } from '@/components/LegalDocument';
 
 const heroImage = '/angar_hero2.jpg';
@@ -34,17 +35,11 @@ function SiteApp() {
           <Hero onVideoOpen={() => setVideoOpen(true)} />
         </section>
         <Benefits />
+        <CallbackCta headingId="benefits-callback-title" onOpen={() => setCallbackOpen(true)} />
         <Programs />
+        <CallbackCta headingId="programs-callback-title" onOpen={() => setCallbackOpen(true)} />
         <Trainers />
-        <section className="callback-cta container" aria-labelledby="callback-cta-title">
-          <div>
-            <p className="eyebrow">ХОЧЕШЬ НАЧАТЬ?</p>
-            <h2 id="callback-cta-title">ЗАКАЖИ ОБРАТНЫЙ ЗВОНОК</h2>
-          </div>
-          <button className="callback-cta-button" type="button" onClick={() => setCallbackOpen(true)}>
-            ЗАКАЗАТЬ ОБРАТНЫЙ ЗВОНОК
-          </button>
-        </section>
+        <CallbackCta headingId="trainers-callback-title" onOpen={() => setCallbackOpen(true)} />
         <Footer />
       </main>
 
