@@ -65,7 +65,7 @@ export function CallbackModal({ open, onClose }: CallbackModalProps) {
       const response = await fetch('/api/callback', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Idempotency-Key': idempotencyKey },
-        body: JSON.stringify({ name: values.name, phone: values.phone, callbackTime: values.preferredCallTime.trim() || undefined, consent: values.consent }),
+        body: JSON.stringify({ name: values.name, phone: values.phone, preferred_call_time: values.preferredCallTime.trim() || undefined, consent: values.consent }),
       });
       const result = await response.json().catch(() => null) as { accepted?: unknown; notification?: unknown } | null;
       if (!response.ok || result?.accepted !== true) throw new Error('request_failed');

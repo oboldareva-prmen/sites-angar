@@ -9,6 +9,7 @@ import { Footer } from '@/components/Footer';
 import { CallbackModal } from '@/components/CallbackModal';
 import { CallbackCta } from '@/components/CallbackCta';
 import { LegalDocument } from '@/components/LegalDocument';
+import { AdminRequestsPage } from '@/components/AdminRequestsPage';
 
 const heroImage = '/angar_hero2.jpg';
 
@@ -18,6 +19,8 @@ function App() {
   if (path === '/consent' || path === '/privacy') {
     return <LegalDocument kind={path.slice(1) as 'consent' | 'privacy'} />;
   }
+
+  if (path === '/admin/requests') return <AdminRequestsPage />;
 
   return <SiteApp />;
 }

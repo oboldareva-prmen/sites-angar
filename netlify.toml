@@ -1,0 +1,43 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[redirects]]
+  from = "/api/callback"
+  to = "/.netlify/functions/callback"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/admin/login"
+  to = "/.netlify/functions/admin-login"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/admin/logout"
+  to = "/.netlify/functions/admin-logout"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/admin/callbacks"
+  to = "/.netlify/functions/admin-callbacks"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/admin/callbacks/export.csv"
+  to = "/.netlify/functions/admin-export-csv"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/admin/requests"
+  to = "/index.html"
+  status = 200
+  force = false
