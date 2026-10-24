@@ -116,7 +116,7 @@ export function CallbackModal({ open, onClose }: CallbackModalProps) {
               </span>
             </label>
             {error && <p className="callback-message callback-error" role="alert">{error}</p>}
-            <button className="callback-submit" type="submit" disabled={status === 'sending'}>
+            <button className="callback-submit" type="submit" disabled={status === 'sending' || !values.consent}>
               {status === 'sending' ? 'ОТПРАВКА...' : 'ЗАКАЗАТЬ ЗВОНОК'}
             </button>
           </form>
